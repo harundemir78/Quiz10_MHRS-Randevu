@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HastaneDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Hasta">
+    <Key>
+      <PropertyRef Name="HastaID" />
+    </Key>
+    <Property Name="HastaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Tc" Type="nvarchar" MaxLength="11" />
+    <Property Name="Ad" Type="nvarchar" MaxLength="50" />
+    <Property Name="Soyad" Type="nvarchar" MaxLength="50" />
+    <Property Name="DogumTarihi" Type="nvarchar" MaxLength="50" />
+    <Property Name="Cinsiyet" Type="bit" />
+    <Property Name="Parola" Type="nvarchar" MaxLength="50" />
+    <Property Name="OlusturulmaTarihi" Type="nvarchar" MaxLength="50" />
+    <Property Name="AktifMi" Type="bit" />
+  </EntityType>
+  <EntityType Name="Ilac">
+    <Key>
+      <PropertyRef Name="IlacID" />
+    </Key>
+    <Property Name="IlacID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ad" Type="nvarchar(max)" />
+    <Property Name="OlusturulmaTarihi" Type="date" />
+    <Property Name="AktifMi" Type="bit" />
+  </EntityType>
+  <EntityType Name="Personel">
+    <Key>
+      <PropertyRef Name="PersonelID" />
+    </Key>
+    <Property Name="PersonelID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TurID" Type="int" />
+    <Property Name="Tc" Type="nvarchar" MaxLength="11" />
+    <Property Name="Ad" Type="nvarchar" MaxLength="50" />
+    <Property Name="Soyad" Type="nvarchar" MaxLength="50" />
+    <Property Name="GirisTarihi" Type="nvarchar" MaxLength="50" />
+    <Property Name="Resim" Type="image" />
+    <Property Name="Parola" Type="nvarchar" MaxLength="50" />
+    <Property Name="AktifMi" Type="bit" />
+  </EntityType>
+  <EntityType Name="PersonelIzin">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PersonelID" Type="int" />
+    <Property Name="BaslangicTarihi" Type="date" />
+    <Property Name="BitisTarihi" Type="date" />
+    <Property Name="OlusturulmaTarihi" Type="date" />
+    <Property Name="IzinDurum" Type="bit" />
+  </EntityType>
+  <EntityType Name="PersonelTur">
+    <Key>
+      <PropertyRef Name="PersonelTurID" />
+    </Key>
+    <Property Name="PersonelTurID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Tur" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Randevu">
+    <Key>
+      <PropertyRef Name="RandevuID" />
+    </Key>
+    <Property Name="RandevuID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HastaID" Type="int" />
+    <Property Name="PersonelID" Type="int" />
+    <Property Name="RandevuSaati" Type="datetime" />
+    <Property Name="OlusturulmaTarihi" Type="date" />
+    <Property Name="RandevuOnay" Type="bit" />
+  </EntityType>
+  <EntityType Name="Recete">
+    <Key>
+      <PropertyRef Name="ReceteID" />
+    </Key>
+    <Property Name="ReceteID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HastaID" Type="int" />
+    <Property Name="PersonelID" Type="int" />
+    <Property Name="RandevuSaati" Type="datetime" />
+    <Property Name="OlusturulmaTarihi" Type="date" />
+    <Property Name="ReceteOnay" Type="bit" />
+  </EntityType>
+  <EntityType Name="ReceteIlac">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReceteID" Type="int" />
+    <Property Name="IlacID" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityContainer Name="HastaneDBModelStoreContainer">
+    <EntitySet Name="Hasta" EntityType="Self.Hasta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ilac" EntityType="Self.Ilac" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Personel" EntityType="Self.Personel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PersonelIzin" EntityType="Self.PersonelIzin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PersonelTur" EntityType="Self.PersonelTur" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Randevu" EntityType="Self.Randevu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Recete" EntityType="Self.Recete" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ReceteIlac" EntityType="Self.ReceteIlac" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

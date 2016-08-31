@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E09BFA99-F714-4183-81D2-491143A3B4D0}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Hastane</RootNamespace>
+    <AssemblyName>Hastane</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Brans.cs">
+      <DependentUpon>Randevu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EKLE\BransEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EKLE\BransEkle.Designer.cs">
+      <DependentUpon>BransEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DBIslem.cs" />
+    <Compile Include="Hasta.cs">
+      <DependentUpon>Randevu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EKLE\HastaKayıt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EKLE\HastaKayıt.Designer.cs">
+      <DependentUpon>HastaKayıt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Giris.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Giris.Designer.cs">
+      <DependentUpon>Giris.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ilac.cs">
+      <DependentUpon>Randevu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KayitKontrol.cs" />
+    <Compile Include="MdiAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MdiAdmin.Designer.cs">
+      <DependentUpon>MdiAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MdiDoktor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MdiDoktor.Designer.cs">
+      <DependentUpon>MdiDoktor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MdiHasta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MdiHasta.Designer.cs">
+      <DependentUpon>MdiHasta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Personel.cs">
+      <DependentUpon>Randevu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EKLE\PersonelEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EKLE\PersonelEkle.Designer.cs">
+      <DependentUpon>PersonelEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PersonelIzin.cs">
+      <DependentUpon>Randevu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PersonelTur.cs">
+      <DependentUpon>Randevu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Randevu.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Randevu.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Randevu.cs">
+      <DependentUpon>Randevu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Randevu.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Randevu.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Randevu1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Randevu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recete.cs">
+      <DependentUpon>Randevu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReceteIlac.cs">
+      <DependentUpon>Randevu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>Randevu.tt</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="EKLE\BransEkle.resx">
+      <DependentUpon>BransEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EKLE\HastaKayıt.resx">
+      <DependentUpon>HastaKayıt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Giris.resx">
+      <DependentUpon>Giris.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MdiAdmin.resx">
+      <DependentUpon>MdiAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MdiDoktor.resx">
+      <DependentUpon>MdiDoktor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MdiHasta.resx">
+      <DependentUpon>MdiHasta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EKLE\PersonelEkle.resx">
+      <DependentUpon>PersonelEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EntityDeploy Include="Randevu.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Randevu.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Randevu.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Randevu.edmx</DependentUpon>
+      <LastGenOutput>Randevu.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Randevu.edmx.diagram">
+      <DependentUpon>Randevu.edmx</DependentUpon>
+    </None>
+    <None Include="Randevu.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Randevu.edmx</DependentUpon>
+      <LastGenOutput>Randevu1.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

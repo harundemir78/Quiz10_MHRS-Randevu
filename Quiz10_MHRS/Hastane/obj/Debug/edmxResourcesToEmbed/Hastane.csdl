@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HastaneDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Ilac">
+    <Key>
+      <PropertyRef Name="IlacID" />
+    </Key>
+    <Property Name="IlacID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OlusturulmaTarihi" Type="DateTime" Precision="0" />
+    <Property Name="AktifMi" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="PersonelIzin">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PersonelID" Type="Int32" />
+    <Property Name="BaslangicTarihi" Type="DateTime" Precision="0" />
+    <Property Name="BitisTarihi" Type="DateTime" Precision="0" />
+    <Property Name="OlusturulmaTarihi" Type="DateTime" Precision="0" />
+    <Property Name="IzinDurum" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="PersonelTur">
+    <Key>
+      <PropertyRef Name="PersonelTurID" />
+    </Key>
+    <Property Name="PersonelTurID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Tur" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Randevu">
+    <Key>
+      <PropertyRef Name="RandevuID" />
+    </Key>
+    <Property Name="RandevuID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HastaID" Type="Int32" />
+    <Property Name="PersonelID" Type="Int32" />
+    <Property Name="RandevuSaati" Type="DateTime" Precision="3" />
+    <Property Name="OlusturulmaTarihi" Type="DateTime" Precision="0" />
+    <Property Name="RandevuOnay" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Recete">
+    <Key>
+      <PropertyRef Name="ReceteID" />
+    </Key>
+    <Property Name="ReceteID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HastaID" Type="Int32" />
+    <Property Name="PersonelID" Type="Int32" />
+    <Property Name="RandevuSaati" Type="DateTime" Precision="3" />
+    <Property Name="OlusturulmaTarihi" Type="DateTime" Precision="0" />
+    <Property Name="ReceteOnay" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="ReceteIlac">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReceteID" Type="Int32" />
+    <Property Name="IlacID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityContainer Name="HastaneDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Ilac" EntityType="Self.Ilac" />
+    <EntitySet Name="PersonelIzin" EntityType="Self.PersonelIzin" />
+    <EntitySet Name="PersonelTur" EntityType="Self.PersonelTur" />
+    <EntitySet Name="Randevu" EntityType="Self.Randevu" />
+    <EntitySet Name="Recete" EntityType="Self.Recete" />
+    <EntitySet Name="ReceteIlac" EntityType="Self.ReceteIlac" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Hastas" EntityType="HastaneDBModel.Hasta" />
+    <EntitySet Name="Personels" EntityType="HastaneDBModel.Personel" />
+  </EntityContainer>
+  <EntityType Name="Hasta">
+    <Key>
+      <PropertyRef Name="HastaID" />
+    </Key>
+    <Property Name="HastaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Tc" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DogumTarihi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Cinsiyet" Type="Boolean" />
+    <Property Name="Parola" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OlusturulmaTarihi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AktifMi" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Personel">
+    <Key>
+      <PropertyRef Name="PersonelID" />
+    </Key>
+    <Property Name="PersonelID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TurID" Type="Int32" />
+    <Property Name="Tc" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GirisTarihi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Resim" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Parola" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AktifMi" Type="Boolean" />
+  </EntityType>
+</Schema>
